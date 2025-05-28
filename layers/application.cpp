@@ -23,7 +23,7 @@ ApplicationLayer::ApplicationLayer(int method) {
 */
 string ApplicationLayer::encapsulate() {
     string encapsulatedMessage = method;
-    map<string, string>::iterator iterator;
+    map<string, string>::iterator iterator = fields.begin();
 
     encapsulatedMessage += iterator->first;
     encapsulatedMessage+= " " + iterator->second;
@@ -44,9 +44,9 @@ void ApplicationLayer::removeField(string fieldName) {
     fields.erase(fieldName);
 }
 
-void ApplicationLayer::setHeaderField(string fieldName, string fieldValue)  {
-    fields.insert(fieldName, fieldValue);
-}
+// void ApplicationLayer::setHeaderField(string fieldName, string fieldValue)  {
+//     fields.insert(fieldName, fieldValue);
+// }
 
 /* 
     This helper function encapsulates a switch case to return

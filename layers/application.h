@@ -21,7 +21,7 @@ class ApplicationLayer{
 
         string encapsulate();
         string decapsulate(string message);
-        void setHeaderField(string fieldName, string fieldValue);
+        // void setHeaderField(string fieldName, string fieldValue);
         void removeField(string fieldName);
     
     private:
