@@ -4,9 +4,18 @@
 
 using std::string;
 
-string application_layer::send(string messageBody, map<string, string> headerData) {
-   
+ApplicationLayer::ApplicationLayer(int method) {
+    ApplicationLayer::method = returnMethod(method);
 }
+
+/*
+    URL, CLIENT, METHOD
+*/
+string ApplicationLayer::send() {
+    return encapsulate();
+}
+
+
 
 string parseMessage(string ) {
 
@@ -16,18 +25,27 @@ string parseMessage(string ) {
     This function simulates the application layer
     encapsulation for an HTTP request.
 */
-string application_layer::encapsulate(string body, int method) {
-    string methodString = returnMethod(method);
-    
+string ApplicationLayer::encapsulate() {
+    string encapsulatedMessage = method;
+    map<string, string>::iterator iterator;
+
+    for (iterator = fields.begin(); iterator != fields.end(); iterator++) {
+        encapsulatedMessage += iterator->first;
+        encapsulatedMessage += " " + iterator->second + "\n";
+    }
+    return encapsulatedMessage;
+}
+
+string ApplicationLayer::decapsulate(string message) {
     return "";
 }
 
-string application_layer::decapsulate(string message) {
-    return "";
+void ApplicationLayer::removeField(string fieldName) {
+    fields.erase(fieldName);
 }
 
-void application_layer::removeField(string fieldName) {
-    defaultFields.erase(fieldName);
+void ApplicationLayer::setHeaderField(string fieldName, string fieldValue)  {
+    fields.insert(fieldName, fieldValue);
 }
 
 /* 
@@ -35,7 +53,7 @@ void application_layer::removeField(string fieldName) {
     the string value of an HTTP method corresponding to a 
     particular int. This just keeps encapsulate less cluttered.
 */
-std::string application_layer::returnMethod(int method) {
+std::string ApplicationLayer::returnMethod(int method) {
    switch(method) {
         case 0:
             return "GET";
