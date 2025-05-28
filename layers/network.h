@@ -13,7 +13,7 @@ class NetworkLayer {
         string Decapsulate(string message);
 
     private:
-
+        
 };
 
 #endif

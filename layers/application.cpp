@@ -71,6 +71,7 @@ std::string ApplicationLayer::returnMethod(int method) {
             return "DELETE";
             break;
         default:
+            return "";
             break;
    }
 }

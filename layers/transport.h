@@ -1,3 +1,7 @@
+
+#ifndef TRANSPORT_H
+#define TRANSPORT_H
+
 class TransportLayer {
     public:
         TransportLayer();
@@ -12,3 +16,5 @@ class TransportLayer {
         string m_dwAcknowledge;
         string m_dwLength;
 };
+
+#endif

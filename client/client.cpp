@@ -2,10 +2,10 @@
 #include <iostream>
 #include <string>
 
-#include "../layers/application.h"
-#include "../layers/transport.h"
-#include "../layers/network.h"
-#include "../layers/link.h"
+#include "../layers/application.cpp"
+#include "../layers/transport.cpp"
+#include "../layers/network.cpp"
+#include "../layers/link.cpp"
 
 using std::cout;
 using std::endl;
@@ -59,7 +59,9 @@ void Client::SendMessage(string dwHost) {
     // create link layer and encapsulate our message
     cout << "[Link Layer] Sending: " << dwLink << endl << endl;
     LinkLayer* pLink = new LinkLayer(); 
-    string dwNetwork = pLink->Encapsulate(dwLink);
+    string dwFinal = pLink->Encapsulate(dwLink);
+
+    cout << "Final message: " << dwFinal;
 }
 
 void Client::RecieveMessage(string dwMesage) {
@@ -79,7 +81,7 @@ void Client::RecieveMessage(string dwMesage) {
 
     // create transport layer and decapsulate our remaining message
     cout << "[Transport Layer] Receiving: " << dwTransport << endl << endl;
-    Transport* pTransport = new Transport();
+    TransportLayer* pTransport = new TransportLayer();
     string dwApplication = pTransport->Decapsulate(dwTransport);
 
     // create application layer and decapsulate the final layer of the message
