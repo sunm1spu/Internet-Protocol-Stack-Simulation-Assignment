@@ -42,7 +42,7 @@ void Client::SendMessage(string dwHost) {
         {"URL", "https://www.innersloth.com/games/among-us/"},
         {"Version", "HTTP/1.1"},
         {"Accept", "text/html"},
-        {"Body", "I'm trying to send a body in a get request for some reason"},
+        {"Body", "Among Us is a 2018 online multiplayer social deduction game developed and published by American game studio Innersloth. The game allows for cross-platform play; it was released on iOS and Android devices in June 2018 and on Windows later that year in November. It was ported to the Nintendo Switch in December 2020 and on the PlayStation 4, PlayStation 5, Xbox One and Xbox Series X/S in December 2021. A virtual reality adaptation, Among Us VR, was released on November 10, 2022."},
     };
 
     string dwMessage = "GET / HTTP/1.1\r\n";
@@ -84,28 +84,28 @@ void Client::SendMessage(string dwHost) {
 
 void Client::RecieveMessage(string dwMesage) {
 
-    // print some headers for our output, make sure to include IP so we know who is doing what
-    cout << "[Client /w IP: " << m_dwIP << "] ============ Receiving ============" << endl;
+    // // print some headers for our output, make sure to include IP so we know who is doing what
+    // cout << "[Client /w IP: " << m_dwIP << "] ============ Receiving ============" << endl;
 
-    // create link layer and decapsulate our message
-    cout << "[Link Layer] Receiving: " << dwMesage << endl << endl;
-    LinkLayer* pLink = new LinkLayer(); 
-    string dwNetwork = pLink->Decapsulate(dwMesage);
+    // // create link layer and decapsulate our message
+    // cout << "[Link Layer] Receiving: " << dwMesage << endl << endl;
+    // LinkLayer* pLink = new LinkLayer(); 
+    // string dwNetwork = pLink->Decapsulate(dwMesage);
 
-    // create network layer and decapsulate our remaining message
-    cout << "[Network Layer] Receiving: " << dwNetwork << endl << endl;
-    NetworkLayer* pNetwork = new NetworkLayer();
-    string dwTransport = pNetwork->Decapsulate(dwNetwork); 
+    // // create network layer and decapsulate our remaining message
+    // cout << "[Network Layer] Receiving: " << dwNetwork << endl << endl;
+    // NetworkLayer* pNetwork = new NetworkLayer();
+    // string dwTransport = pNetwork->Decapsulate(dwNetwork); 
 
-    // create transport layer and decapsulate our remaining message
-    cout << "[Transport Layer] Receiving: " << dwTransport << endl << endl;
-    TransportLayer* pTransport = new TransportLayer();
-    string dwApplication = pTransport->Decapsulate(dwTransport);
+    // // create transport layer and decapsulate our remaining message
+    // cout << "[Transport Layer] Receiving: " << dwTransport << endl << endl;
+    // TransportLayer* pTransport = new TransportLayer();
+    // string dwApplication = pTransport->Decapsulate(dwTransport);
 
-    // create application layer and decapsulate the final layer of the message
-    cout << "[Application Layer] Receiving: " << dwApplication << endl << endl;
-    ApplicationLayer* pApplication = new ApplicationLayer();
-    string dwMessage = pApplication->decapsulate(dwApplication); // capitalize this decapsulate
+    // // create application layer and decapsulate the final layer of the message
+    // cout << "[Application Layer] Receiving: " << dwApplication << endl << endl;
+    // ApplicationLayer* pApplication = new ApplicationLayer();
+    // string dwMessage = pApplication->decapsulate(dwApplication); // capitalize this decapsulate
 
-    cout << "Final message received: " << dwMesage;
+    // cout << "Final message received: " << dwMesage;
 }
