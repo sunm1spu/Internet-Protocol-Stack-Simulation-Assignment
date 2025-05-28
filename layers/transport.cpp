@@ -3,14 +3,21 @@ using namespace std;
 #include "transport.h"
 
 
-Transport::Transport() {
-    m_dwSourcePort = "";
+TransportLayer::TransportLayer() {
+    m_dwTCPVersion = "Transmission Control Protocol";
+    m_dwSourcePort = "63784";
+    m_dwDestinationPort = "80";
+    m_dwSequence = "1";
+    m_dwAcknowledge = "1";
+    m_dwLength = "76";
 }
 
-string Transport::Encapsulate(string message) {
-    return "";
+string TransportLayer::Encapsulate(string message) {
+    return message +  + ", " +
+    "Src Port: " + m_dwSourcePort + ", " + "Dst Port: " + m_dwDestinationPort + ", " + 
+    "Seq: " + m_dwSequence + ", " + "Ack: " + m_dwAcknowledge + ", " + "Len: " + m_dwLength;
 }
 
-string Transport::Decapsulate(string message) {
+string TransportLayer::Decapsulate(string message) {
     return "";
 }
