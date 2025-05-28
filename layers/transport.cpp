@@ -13,7 +13,7 @@ TransportLayer::TransportLayer() {
 }
 
 string TransportLayer::Encapsulate(string message) {
-    return message +  + ", " +
+    return message + m_dwTCPVersion + ", " +
     "Src Port: " + m_dwSourcePort + ", " + "Dst Port: " + m_dwDestinationPort + ", " + 
     "Seq: " + m_dwSequence + ", " + "Ack: " + m_dwAcknowledge + ", " + "Len: " + m_dwLength;
 }
