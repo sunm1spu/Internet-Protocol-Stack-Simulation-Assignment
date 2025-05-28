@@ -15,6 +15,7 @@ class ApplicationLayer{
     public:
         ApplicationLayer();
         ApplicationLayer(int method);
+        ApplicationLayer(map<string, string> inputFields);
 
         string send();
         string receive(string message);
@@ -30,11 +31,15 @@ class ApplicationLayer{
 
         string method = "";
         map<string, string>fields = {
+            {"Method", "NULL"},
+            {"URL", ""},
+            {"Version", ""},
             {"Host:", ""},
-            {"Acccept:", ""},
+            {"Accept:", ""},
             {"Connection:", "close"},
             {"User-agent:", ""},
-            {"Accept-language", "en"},
+            {"Accept-language:", "en"},
+            {"Body", ""},
         };
         
 };

@@ -37,17 +37,24 @@ void Client::AddMessage(string dwMesage) {
 }
 
 void Client::SendMessage(string dwHost) {
+    map<string, string> fieldMap = {
+        {"Method", "GET"},
+        {"URL", "https://www.innersloth.com/games/among-us/"},
+        {"Version", "HTTP/1.1"},
+        {"Body", "I'm trying to send a body in a get request for some reason"}
+    };
+
     string dwMessage = "GET / HTTP/1.1\r\n";
 
     cout << "[Client /w IP: " << m_dwIP << "] ============ Sending ============" << endl;
 
     // create application layer and encapsulate the first layer of the message, we are emulating sending a simple GET request.
     cout << "[Application Layer] Sending: " << dwMessage << endl << endl;
-    ApplicationLayer* pApplication = new ApplicationLayer(0);
+    ApplicationLayer* pApplication = new ApplicationLayer(fieldMap);
     string dwTransport = pApplication->encapsulate(); // capitalize this decapsulate
     
     // create transport layer and encapsulate our message
-    cout << "[Transport Layer] Sending: " << dwTransport << endl << endl;
+    cout << "[Transport Layer] Sending: \n" << dwTransport << endl << endl;
     TransportLayer* pTransport = new TransportLayer();
     string dwNetwork = pTransport->Encapsulate(dwTransport);
     

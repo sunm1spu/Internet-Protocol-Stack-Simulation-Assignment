@@ -3,9 +3,15 @@
 #include "application.h"
 
 using std::string;
+using std::endl;
+using std::cout;
 
-ApplicationLayer::ApplicationLayer() {
-    
+ApplicationLayer::ApplicationLayer() {}
+
+ApplicationLayer::ApplicationLayer(map<string, string> fieldsInput) {
+
+    fieldsInput.merge(fields);
+    fields = fieldsInput;
 }
 
 ApplicationLayer::ApplicationLayer(int method) {
@@ -13,26 +19,30 @@ ApplicationLayer::ApplicationLayer(int method) {
 }
 
 /*
-    URL, CLIENT, METHOD
-*/
-
-
-/*
     This function simulates the application layer
     encapsulation for an HTTP request.
 */
 string ApplicationLayer::encapsulate() {
-    string encapsulatedMessage = method;
-    map<string, string>::iterator iterator = fields.begin();
+    /*
+        Header structure
 
-    encapsulatedMessage += iterator->first;
-    encapsulatedMessage+= " " + iterator->second;
-    iterator++;
+            Request line: method SP URL SP Version CR LF
+            Header lines: header-field-name SP value CR LF 
+            CR LF
+            Entity Body
+    
+    */
+    string encapsulatedMessage = fields["Method"] + " " + fields["URL"] + " " + fields["Version"] + "\r\n";
 
-    for (; iterator != fields.end(); iterator++) {
-        encapsulatedMessage += "\n" + iterator->first;
-        encapsulatedMessage += " " + iterator->second;
+
+    for (const auto& [key, value] : fields) {
+        if (key != "Method" && key != "URL"  && key != "Version" && key != "Body" ) {
+            encapsulatedMessage += key + " ";
+            encapsulatedMessage += value + "\r\n";
+        }
     }
+    encapsulatedMessage += "\r\n" + fields["Body"];
+
     return encapsulatedMessage;
 }
 
