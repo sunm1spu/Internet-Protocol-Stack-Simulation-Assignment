@@ -7,8 +7,8 @@ using std::string;
 
 class Client {
     public:
-        Client(); // default constructor
-        void SendRequest(string host, string method, string body);
+        Client(string dwIP); // default constructor
+        void SendRequest(string dwHost);
         void ProcessRequests();
         void RecieveRequest();
 
