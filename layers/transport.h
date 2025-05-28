@@ -1,10 +1,11 @@
-class Transport {
+class TransportLayer {
     public:
-        Transport();
+        TransportLayer();
         string Encapsulate(string message);
         string Decapsulate(string message);
 
     private:
+        string m_dwTCPVersion;
         string m_dwSourcePort;
         string m_dwDestinationPort;
         string m_dwSequence;

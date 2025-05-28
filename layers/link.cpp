@@ -2,14 +2,14 @@ using namespace std;
 #include <string>
 #include "link.h"
 
-Link::Link() {
+LinkLayer::LinkLayer() {
 
 }
 
-string Link::Encapsulate(string message) {
+string LinkLayer::Encapsulate(string message) {
     return "";
 }
 
-string Link::Decapsulate(string message) {
+string LinkLayer::Decapsulate(string message) {
     return "";
 }
