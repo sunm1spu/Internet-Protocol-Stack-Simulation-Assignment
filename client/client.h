@@ -11,7 +11,7 @@ using std::stack;
 class Client {
     public:
         Client(string dwIP); // default constructor
-        void SendRequest(string dwHost);
+        void SendMessage(string dwHost);
         void ProcessIncomingMessages();
         void AddMessage(string dwMessage);
         void RecieveMessage(string dwMesage);
