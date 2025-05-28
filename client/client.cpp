@@ -3,6 +3,7 @@
 #include <string>
 
 #include "../layers/application.h"
+#include "../layers/network.h"
 #include "../layers/link.h"
 
 using std::cout;
@@ -46,7 +47,11 @@ void Client::RecieveMessage(string dwMesage) {
 
     // create link layer and decapsulate our message
     LinkLayer* pLink = new LinkLayer(); 
-    string dwLinkRemoved = pLink->Decapsulate(dwMesage);
+    string dwNetwork = pLink->Decapsulate(dwMesage);
 
-    cout << "[Network Layer] Receiving: " << dwLinkRemoved << endl << endl;
+    cout << "[Network Layer] Receiving: " << dwNetwork << endl << endl;
+    NetworkLayer* pNetwork = new NetworkLayer();
+    string dwTransport = pNetwork->Decapsulate(dwNetwork); 
+
+    cout << "[Transport Layer] Receiving: " << dwNetwork << endl << endl;
 }
