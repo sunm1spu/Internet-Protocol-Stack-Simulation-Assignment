@@ -1,3 +1,11 @@
+
+#ifndef LINK_H
+#define LINK_H
+
+#include <string>
+
+using std::string;
+
 class Link {
     public:
         Link();
@@ -7,3 +15,5 @@ class Link {
     private:
 
 };
+
+#endif

@@ -12,13 +12,14 @@ class Client {
     public:
         Client(string dwIP); // default constructor
         void SendRequest(string dwHost);
-        void ProcessIncomingRequests();
-        void RecieveRequest();
+        void ProcessIncomingMessages();
+        void AddMessage(string dwMessage);
+        void RecieveMessage(string dwMesage);
 
     private:
         string m_dwIP;
         string m_dwMACAddress;
-        stack<
+        stack<string> m_stdwIncomingMessages;
 };
 
 #endif
