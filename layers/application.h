@@ -29,7 +29,7 @@ class ApplicationLayer{
             {"Acccept:", ""},
             {"Connection:", "close"},
             {"User-agent:", ""},
-            {"Accept-language", "en"}
+            {"Accept-language", "en"},
         };
         
 };
