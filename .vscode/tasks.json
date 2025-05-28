@@ -9,7 +9,7 @@
                 "where g++ && g++ -fdiagnostics-color=always -g ${file} -o ${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "C:\\MinGW\\bin"
+                "cwd": "C:\\"
             },
             "problemMatcher": [
                 "$gcc"
