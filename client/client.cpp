@@ -66,6 +66,8 @@ void Client::SendMessage(string dwHost) {
 
         cout << networkTest[i] << endl;
     }
+
+    string humptyDumpty = pTransport->decapsulate(networkTest);
     
     // // create network layer and encapsulate our message
     // cout << "[Network Layer] Sending: " << dwNetwork << endl << endl;

@@ -56,11 +56,46 @@ vector<string> TransportLayer::sendSegments(string message, string transportHead
     }
 
     if (i < messageLength) {
-        string sequenceNumber = convertBitToString(totalSegments, 10);
+        string sequenceNumber = convertBitToString(totalSegments - 1, 10);
         segmentArray.push_back(transportHeader + sequenceNumber + message.substr(i));
     }
 
     return segmentArray;
+}
+
+/*
+    This function removes the transport layer header and 
+    assembles the segments into a complete message.
+*/
+string TransportLayer::decapsulate(vector<string> segments) {
+    cout << "decapsulating" << endl;
+
+    const int headerSize = 20;
+    cout << "size vector" << segments.size() << endl << endl;
+    int segmentArraySize = segments.size();
+    
+    string segmentArray[segmentArraySize];  
+    cout << "segarray size " << sizeof(segmentArray) << endl << endl;
+    string message = "";
+
+    /*
+        Remove transport layer header and place segment in appropriate place given 
+        sequence number.
+    */
+    for (int i = 0; i < segments.size(); i++) {
+        string segment = segments[i];
+        int sequence = std::stoi(segment.substr(10, 10));
+
+        segment = segment.substr(20);
+        segmentArray[sequence] = segment;
+    }
+
+    for (int i = 0; i < sizeof(segmentArray) / sizeof(segmentArray[0]) + 1; i++) {
+        cout << i << " putting back together: \n" << message << endl << endl;
+        message += segmentArray[i];
+    }
+
+    return message; 
 }
 
 string TransportLayer::convertBitToString(uint32_t number, int dig) {

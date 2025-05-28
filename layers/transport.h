@@ -11,6 +11,7 @@ class TransportLayer {
         string Decapsulate(string message);
 
         vector<string> encapsulate(string message);
+        string decapsulate(vector<string> segments);
 
         vector<string> sendSegments(string message, string header);
 
@@ -25,7 +26,7 @@ class TransportLayer {
         /*
             Default Max Segment Size in characters
         */
-        int MSS = 10;
+        int MSS = 20;
         int sourcePort;
         int destPort;
         int sequence;
