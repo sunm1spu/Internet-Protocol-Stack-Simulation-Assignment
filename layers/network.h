@@ -13,6 +13,9 @@ class NetworkLayer {
         string Decapsulate(string message);
 
     private:
+        string dwIPVersion;
+        string dwSourceIP;
+        string dwDestinationIP;
 
 };
 
