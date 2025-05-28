@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <map>
@@ -8,12 +7,14 @@ using std::string;
 using std::unordered_map;
 using std::map;
 
-class application_layer{    
+class ApplicationLayer{    
     public:
-        string send(string messageBody, map<string, string> headerData);
+        ApplicationLayer(int method);
+
+        string send();
         string receive(string message);
 
-        string encapsulate(string body, int method);
+        string encapsulate();
         string decapsulate(string message);
         void setHeaderField(string fieldName, string fieldValue);
         void removeField(string fieldName);
@@ -22,7 +23,8 @@ class application_layer{
         string returnMethod(int method);
         string parseMessage(string message);
 
-        map<string, string>defaultFields = {
+        string method = "";
+        map<string, string>fields = {
             {"Host:", ""},
             {"Acccept:", ""},
             {"Connection:", "close"},
