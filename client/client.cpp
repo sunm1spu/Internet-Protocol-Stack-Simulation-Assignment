@@ -48,7 +48,7 @@ void Client::SendMessage(string dwHost) {
     
     // create transport layer and encapsulate our message
     cout << "[Transport Layer] Sending: " << dwTransport << endl << endl;
-    Transport* pTransport = new Transport();
+    TransportLayer* pTransport = new TransportLayer();
     string dwNetwork = pTransport->Encapsulate(dwTransport);
     
     // create network layer and encapsulate our message
