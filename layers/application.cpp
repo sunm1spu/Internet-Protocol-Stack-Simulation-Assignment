@@ -4,6 +4,10 @@
 
 using std::string;
 
+ApplicationLayer::ApplicationLayer() {
+    
+}
+
 ApplicationLayer::ApplicationLayer(int method) {
     ApplicationLayer::method = returnMethod(method);
 }
