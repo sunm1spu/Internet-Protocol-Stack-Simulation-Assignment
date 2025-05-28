@@ -9,7 +9,8 @@ class LinkLayer {
     public:
         LinkLayer();
         string Encapsulate(string message);
-        string Decapsulate(string message);
+        vector<string> Decapsulate(vector<string> messages);
+        string DecapsulateSegment(string message);
 
     private:
         string m_dwEthernetVersion;

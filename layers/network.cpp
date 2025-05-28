@@ -1,12 +1,13 @@
 using namespace std;
 #include <string>
 #include "network.h"
+#include <vector>
 
 
 NetworkLayer::NetworkLayer() {
-    dwIPVersion = "Internet Protocol Version 4";
-    dwSourceIP = "10.1.2.345";
-    dwDestinationIP = "45.678.910.11";
+    dwIPVersion = "04"; // 45 in wireshark (?), IPV4
+    dwSourceIP = "010.001.002.345";
+    dwDestinationIP = "045.678.910.011";
 }
 
 string NetworkLayer::Encapsulate(string message) {
@@ -15,6 +16,15 @@ string NetworkLayer::Encapsulate(string message) {
     "Dst: " + dwDestinationIP;
 }
 
-string NetworkLayer::Decapsulate(string message) {
-    return "";
+vector<string> NetworkLayer::Decapsulate(vector<string> messages) {
+    vector<string> segments = {};
+    for (string message : messages) {
+        segments.push_back(DecapsulateSegment(message));
+    }
+    return segments;
+}
+
+string NetworkLayer::DecapsulateSegment(string message) {
+    // 2 + 2 * 15 = 32, 32 + 12 = 44
+    return message.substr(0, message.length() - 44);
 }

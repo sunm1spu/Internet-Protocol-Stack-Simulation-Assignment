@@ -10,7 +10,8 @@ class NetworkLayer {
     public:
         NetworkLayer();
         string Encapsulate(string message);
-        string Decapsulate(string message);
+        vector<string> Decapsulate(vector<string> messages);
+        string DecapsulateSegment(string message);
 
     private:
         string dwIPVersion;
