@@ -11,15 +11,7 @@ ApplicationLayer::ApplicationLayer(int method) {
 /*
     URL, CLIENT, METHOD
 */
-string ApplicationLayer::send() {
-    return encapsulate();
-}
 
-
-
-string parseMessage(string ) {
-
-}
 
 /*
     This function simulates the application layer
@@ -29,9 +21,13 @@ string ApplicationLayer::encapsulate() {
     string encapsulatedMessage = method;
     map<string, string>::iterator iterator;
 
-    for (iterator = fields.begin(); iterator != fields.end(); iterator++) {
-        encapsulatedMessage += iterator->first;
-        encapsulatedMessage += " " + iterator->second + "\n";
+    encapsulatedMessage += iterator->first;
+    encapsulatedMessage+= " " + iterator->second;
+    iterator++;
+
+    for (; iterator != fields.end(); iterator++) {
+        encapsulatedMessage += "\n" + iterator->first;
+        encapsulatedMessage += " " + iterator->second;
     }
     return encapsulatedMessage;
 }
