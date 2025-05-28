@@ -49,9 +49,11 @@ void Client::RecieveMessage(string dwMesage) {
     LinkLayer* pLink = new LinkLayer(); 
     string dwNetwork = pLink->Decapsulate(dwMesage);
 
+    // create network layer and decapsulate our remaining message
     cout << "[Network Layer] Receiving: " << dwNetwork << endl << endl;
     NetworkLayer* pNetwork = new NetworkLayer();
     string dwTransport = pNetwork->Decapsulate(dwNetwork); 
 
+    // create transport layer and decapsulate our remaining message
     cout << "[Transport Layer] Receiving: " << dwNetwork << endl << endl;
 }
