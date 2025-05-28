@@ -2,6 +2,7 @@
 #ifndef TRANSPORT_H
 #define TRANSPORT_H
 #include <vector>
+#include <stdint.h>
 
 class TransportLayer {
     public:
@@ -25,9 +26,14 @@ class TransportLayer {
             Default Max Segment Size in characters
         */
         int MSS = 10;
-        string sourcePort;
-        string destPort;
+        int sourcePort;
+        int destPort;
         int sequence;
+
+        /*
+            32 bits is 10, 16 bits is 5
+        */
+        string convertBitToString(uint32_t number, int digits); 
 };
 
 #endif
