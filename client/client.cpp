@@ -45,7 +45,7 @@ void Client::RecieveMessage(string dwMesage) {
     cout << "[Link Layer] Receiving: " << dwMesage << endl << endl;
 
     // create link layer and decapsulate our message
-    Link* pLink = new Link(); 
+    LinkLayer* pLink = new LinkLayer(); 
     string dwLinkRemoved = pLink->Decapsulate(dwMesage);
 
     cout << "[Network Layer] Receiving: " << dwLinkRemoved << endl << endl;

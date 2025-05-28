@@ -6,9 +6,9 @@
 
 using std::string;
 
-class Link {
+class LinkLayer {
     public:
-        Link();
+        LinkLayer();
         string Encapsulate(string message);
         string Decapsulate(string message);
 
