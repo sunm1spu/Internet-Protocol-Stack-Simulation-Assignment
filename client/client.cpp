@@ -41,7 +41,8 @@ void Client::SendMessage(string dwHost) {
         {"Method", "GET"},
         {"URL", "https://www.innersloth.com/games/among-us/"},
         {"Version", "HTTP/1.1"},
-        {"Body", "I'm trying to send a body in a get request for some reason"}
+        {"Accept", "text/html"},
+        {"Body", "I'm trying to send a body in a get request for some reason"},
     };
 
     string dwMessage = "GET / HTTP/1.1\r\n";
@@ -54,21 +55,29 @@ void Client::SendMessage(string dwHost) {
     string dwTransport = pApplication->encapsulate(); // capitalize this decapsulate
     
     // create transport layer and encapsulate our message
-    cout << "[Transport Layer] Sending: \n" << dwTransport << endl << endl;
+    cout << "\n[Transport Layer] Sending: \n" << dwTransport << endl << endl;
     TransportLayer* pTransport = new TransportLayer();
     string dwNetwork = pTransport->Encapsulate(dwTransport);
+
+    vector<string> networkTest = pTransport->encapsulate(dwTransport);
+    cout << "Segments: \n" << endl;
     
-    // create network layer and encapsulate our message
-    cout << "[Network Layer] Sending: " << dwNetwork << endl << endl;
-    NetworkLayer* pNetwork = new NetworkLayer();
-    string dwLink = pNetwork->Encapsulate(dwNetwork); 
+    for (int i = 0; i < networkTest.size(); i++) {
 
-    // create link layer and encapsulate our message
-    cout << "[Link Layer] Sending: " << dwLink << endl << endl;
-    LinkLayer* pLink = new LinkLayer(); 
-    string dwFinal = pLink->Encapsulate(dwLink);
+        cout << networkTest[i] << endl;
+    }
+    
+    // // create network layer and encapsulate our message
+    // cout << "[Network Layer] Sending: " << dwNetwork << endl << endl;
+    // NetworkLayer* pNetwork = new NetworkLayer();
+    // string dwLink = pNetwork->Encapsulate(dwNetwork); 
 
-    cout << "Final message: " << dwFinal;
+    // // create link layer and encapsulate our message
+    // cout << "[Link Layer] Sending: " << dwLink << endl << endl;
+    // LinkLayer* pLink = new LinkLayer(); 
+    // string dwFinal = pLink->Encapsulate(dwLink);
+
+    // cout << "Final message: " << dwFinal;
 }
 
 void Client::RecieveMessage(string dwMesage) {

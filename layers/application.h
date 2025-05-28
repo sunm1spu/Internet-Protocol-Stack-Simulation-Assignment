@@ -34,11 +34,11 @@ class ApplicationLayer{
             {"Method", "NULL"},
             {"URL", ""},
             {"Version", ""},
-            {"Host:", ""},
-            {"Accept:", ""},
-            {"Connection:", "close"},
-            {"User-agent:", ""},
-            {"Accept-language:", "en"},
+            {"Host", ""},
+            {"Accept", ""},
+            {"Connection", "close"},
+            {"User-agent", ""},
+            {"Accept-language", "en"},
             {"Body", ""},
         };
         

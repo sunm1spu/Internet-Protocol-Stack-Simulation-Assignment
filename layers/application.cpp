@@ -37,7 +37,7 @@ string ApplicationLayer::encapsulate() {
 
     for (const auto& [key, value] : fields) {
         if (key != "Method" && key != "URL"  && key != "Version" && key != "Body" ) {
-            encapsulatedMessage += key + " ";
+            encapsulatedMessage += key + ": ";
             encapsulatedMessage += value + "\r\n";
         }
     }
