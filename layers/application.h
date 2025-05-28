@@ -9,6 +9,7 @@ using std::map;
 
 class ApplicationLayer{    
     public:
+        ApplicationLayer();
         ApplicationLayer(int method);
 
         string send();
