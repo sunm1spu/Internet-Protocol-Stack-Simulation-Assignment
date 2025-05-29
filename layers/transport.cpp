@@ -71,11 +71,9 @@ string TransportLayer::decapsulate(vector<string> segments) {
     cout << "decapsulating" << endl;
 
     const int headerSize = 20;
-    cout << "size vector" << segments.size() << endl << endl;
     int segmentArraySize = segments.size();
     
     string segmentArray[segmentArraySize];  
-    cout << "segarray size " << sizeof(segmentArray) << endl << endl;
     string message = "";
 
     /*

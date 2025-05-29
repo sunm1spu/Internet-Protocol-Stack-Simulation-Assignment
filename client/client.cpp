@@ -42,6 +42,7 @@ void Client::SendMessage(string dwHost) {
         {"URL", "https://www.innersloth.com/games/among-us/"},
         {"Version", "HTTP/1.1"},
         {"Accept", "text/html"},
+        {"Accept-Charset", "utf-8"},
         {"Body", "Among Us is a 2018 online multiplayer social deduction game developed and published by American game studio Innersloth. The game allows for cross-platform play; it was released on iOS and Android devices in June 2018 and on Windows later that year in November. It was ported to the Nintendo Switch in December 2020 and on the PlayStation 4, PlayStation 5, Xbox One and Xbox Series X/S in December 2021. A virtual reality adaptation, Among Us VR, was released on November 10, 2022."},
     };
 
@@ -62,15 +63,46 @@ void Client::SendMessage(string dwHost) {
     vector<string> networkTest = pTransport->encapsulate(dwTransport);
     cout << "Segments: \n" << endl;
     
+    for (int i = 0; i < networkTest.size(); i++) {
+         cout << networkTest[i] << endl;
+    }
+
     // create transport and network layers and encapsulate our message
     cout << "\n[Network Layer] Sending Segments \n";
+    
+    vector<string> finalSegments;
+     NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
+    LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
     for (int i = 0; i < networkTest.size(); i++) {
-        NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
+    
+        //NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
         string dwNetwork = pNetwork->Encapsulate(networkTest[i]);
-        LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
+        // LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
         string dwLink = pLink->Encapsulate(dwNetwork);
         cout << dwLink << endl;
+
+        finalSegments.push_back(dwLink);
     }
+
+    cout << "\nencapsulation finished" << endl;
+
+    cout <<"\nstarting decapsulization" << endl;
+
+    vector<string> linkSegmentsDecap = pLink->Decapsulate(finalSegments);
+
+    vector<string> networkSegmentsDecap = pNetwork->Decapsulate(linkSegmentsDecap);
+
+    cout << "network seg: \n" << networkSegmentsDecap[0] << endl << endl;
+
+    string humptydumpty2 = pTransport->decapsulate(networkSegmentsDecap);
+
+    cout << "humpty: \n" << humptydumpty2 << endl << endl;
+
+    // for (int i = 0; i < finalSegments.size(); i++) {
+    //     string linkSegment = pLink->Decapsulate(finalSegments[i]);
+
+
+    // }
 
     //string humptyDumpty = pTransport->decapsulate(networkTest);
     
