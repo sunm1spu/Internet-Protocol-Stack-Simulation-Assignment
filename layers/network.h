@@ -8,7 +8,7 @@ using std::string;
 
 class NetworkLayer {
     public:
-        NetworkLayer();
+        NetworkLayer(string ipVersion, string sourceIP, string destinationIP);
         string Encapsulate(string message);
         vector<string> Decapsulate(vector<string> messages);
         string DecapsulateSegment(string message);

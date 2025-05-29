@@ -4,10 +4,14 @@ using namespace std;
 #include <vector>
 
 
-NetworkLayer::NetworkLayer() {
-    dwIPVersion = "04"; // 45 in wireshark (?), IPV4
-    dwSourceIP = "010.001.002.345";
-    dwDestinationIP = "045.678.910.011";
+NetworkLayer::NetworkLayer(string ipVersion, string sourceIP, string destinationIP) {
+    dwIPVersion = ipVersion;
+    dwSourceIP = sourceIP;
+    dwDestinationIP = destinationIP;
+    
+    //dwIPVersion = "04"; // IPV4
+    //dwSourceIP = "010.001.002.345";
+    //dwDestinationIP = "045.678.910.011";
 }
 
 string NetworkLayer::Encapsulate(string message) {

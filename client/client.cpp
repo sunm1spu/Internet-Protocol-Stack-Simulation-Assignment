@@ -12,7 +12,7 @@ using std::endl;
 using std::string;
 
 Client::Client(string dwIP) : m_dwIP(dwIP) { 
-    // randomly generate MACAccress
+    // randomly generate MACAddress
     m_dwMACAddress = "1A:2B:3C:D4:E5:F6";
 };
 

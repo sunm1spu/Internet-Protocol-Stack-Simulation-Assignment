@@ -3,16 +3,20 @@ using namespace std;
 #include "link.h"
 #include <vector>
 
-LinkLayer::LinkLayer() {
-    m_dwEthernetVersion = "0800"; // Ethernet II
-    m_dwSource = "7c:21:4a:3c:0b:f9";
-    m_dwDestination = "1c:93:7c:61:60:68";
+LinkLayer::LinkLayer(string source, string destination, string type) {
+    m_dwSource = source;
+    m_dwDestination = destination;
+    m_dwType = type;
+    
+    //m_dwSource = "7c:21:4a:3c:0b:f9";
+    //m_dwDestination = "1c:93:7c:61:60:68";
+    //m_dwEthernetVersion = "0800"; // Ethernet II
 }
 
 string LinkLayer::Encapsulate(string message) {
-    return message + m_dwEthernetVersion + ", " + 
+    return message  + 
     "Src: " + m_dwSource + ", " + 
-    "Dst: " + m_dwDestination;
+    "Dst: " + m_dwDestination + ", " + m_dwType;
 }
 
 vector<string> LinkLayer::Decapsulate(vector<string> messages) {
