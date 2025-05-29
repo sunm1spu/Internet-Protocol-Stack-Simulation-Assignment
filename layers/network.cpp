@@ -15,9 +15,9 @@ NetworkLayer::NetworkLayer(string ipVersion, string sourceIP, string destination
 }
 
 string NetworkLayer::Encapsulate(string message) {
-    return dwIPVersion + ", " +
-    "Src: " + dwSourceIP + ", " +
-    "Dst: " + dwDestinationIP + message;
+    return dwIPVersion +
+    dwSourceIP +
+    dwDestinationIP + message;
 }
 
 vector<string> NetworkLayer::Decapsulate(vector<string> messages) {
@@ -29,6 +29,6 @@ vector<string> NetworkLayer::Decapsulate(vector<string> messages) {
 }
 
 string NetworkLayer::DecapsulateSegment(string message) {
-    // 2 + 2 * 15 = 32, 32 + 12 = 44
-    return message.substr(44);
+    // 2 + 2 * 15 = 32
+    return message.substr(32);
 }

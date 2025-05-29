@@ -9,10 +9,10 @@ using std::endl;
 int main(int argc, char const *argv[])
 {
 
-    Client* c1 = new Client("192.168.56.1"); 
-    Client* c2 = new Client("172.31.0.1"); 
+    Client* c1 = new Client("192.168.056.001"); 
+    Client* c2 = new Client("172.031.000.001"); 
 
-    c1->SendMessage("172.31.0.1");
+    c1->SendMessage("172.031.000.001");
     /* code */
     return 0;
 }
