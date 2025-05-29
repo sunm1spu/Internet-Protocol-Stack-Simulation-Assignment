@@ -58,10 +58,6 @@ void ApplicationLayer::removeField(string fieldName) {
     fields.erase(fieldName);
 }
 
-// void ApplicationLayer::setHeaderField(string fieldName, string fieldValue)  {
-//     fields.insert(fieldName, fieldValue);
-// }
-
 /* 
     This helper function encapsulates a switch case to return
     the string value of an HTTP method corresponding to a 

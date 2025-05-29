@@ -34,7 +34,7 @@ class TransportLayer {
         /*
             32 bits is 10, 16 bits is 5
         */
-        string convertBitToString(uint32_t number, int digits); 
+        string convertBitToString(uint32_t number, int digits);
 };
 
 #endif

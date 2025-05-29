@@ -103,10 +103,7 @@ void Client::SendMessage(string dwHost) {
      NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
     LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
     for (int i = 0; i < networkTest.size(); i++) {
-    
-        //NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
         string dwNetwork = pNetwork->Encapsulate(networkTest[i]);
-        // LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
         string dwLink = pLink->Encapsulate(dwNetwork);
         cout << dwLink << endl;
 
@@ -134,52 +131,8 @@ void Client::SendMessage(string dwHost) {
 
     cout << "Final message: \n" << decapAppMessage << endl << endl;
     writeToFile("\n========== Final message:\n" + decapAppMessage);
-    
-    // for (int i = 0; i < finalSegments.size(); i++) {
-    //     string linkSegment = pLink->Decapsulate(finalSegments[i]);
-
-
-    // }
-
-    //string humptyDumpty = pTransport->decapsulate(networkTest);
-    
-    // // create network layer and encapsulate our message
-    // cout << "[Network Layer] Sending: " << dwNetwork << endl << endl;
-    // NetworkLayer* pNetwork = new NetworkLayer();
-    // string dwLink = pNetwork->Encapsulate(dwNetwork); 
-
-    // // create link layer and encapsulate our message
-    // cout << "[Link Layer] Sending: " << dwLink << endl << endl;
-    // LinkLayer* pLink = new LinkLayer(); 
-    // string dwFinal = pLink->Encapsulate(dwLink);
-
-    // cout << "Final message: " << dwFinal;
 }
 
 void Client::RecieveMessage(string dwMesage) {
 
-    // // print some headers for our output, make sure to include IP so we know who is doing what
-    // cout << "[Client /w IP: " << m_dwIP << "] ============ Receiving ============" << endl;
-
-    // // create link layer and decapsulate our message
-    // cout << "[Link Layer] Receiving: " << dwMesage << endl << endl;
-    // LinkLayer* pLink = new LinkLayer(); 
-    // string dwNetwork = pLink->Decapsulate(dwMesage);
-
-    // // create network layer and decapsulate our remaining message
-    // cout << "[Network Layer] Receiving: " << dwNetwork << endl << endl;
-    // NetworkLayer* pNetwork = new NetworkLayer();
-    // string dwTransport = pNetwork->Decapsulate(dwNetwork); 
-
-    // // create transport layer and decapsulate our remaining message
-    // cout << "[Transport Layer] Receiving: " << dwTransport << endl << endl;
-    // TransportLayer* pTransport = new TransportLayer();
-    // string dwApplication = pTransport->Decapsulate(dwTransport);
-
-    // // create application layer and decapsulate the final layer of the message
-    // cout << "[Application Layer] Receiving: " << dwApplication << endl << endl;
-    // ApplicationLayer* pApplication = new ApplicationLayer();
-    // string dwMessage = pApplication->decapsulate(dwApplication); // capitalize this decapsulate
-
-    // cout << "Final message received: " << dwMesage;
 }

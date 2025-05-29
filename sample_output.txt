@@ -1,52 +1,35 @@
 [Client /w IP: 192.168.056.001] ============ Sending ============
-[Application Layer] Sending: GET / HTTP/1.1
+[Application Layer] Sending: GET / HTTP/1.1
 
-
-POST https://www.innersloth.com/games/among-us/ HTTP/1.1
-
-Accept: text/html
-
-Accept-Charset: utf-8
-
-Accept-language: en
-
-Connection: close
-
-Host: www.innersloth.com
-
-User-agent: Win64
-
-
-
+POST https://www.innersloth.com/games/among-us/ HTTP/1.1
+Accept: text/html
+Accept-Charset: utf-8
+Accept-language: en
+Connection: close
+Host: www.innersloth.com
+User-agent: Win64
+
 Domestic cats are found across the globe, though their popularity as pets varies by region. Out of the estimated 600 million cats worldwide, 400 million reside in Asia, including 58 million pet cats in China. The United States leads in cat ownership with 73.8 million cats. In the United Kingdom, approximately 10.9 million domestic cats are kept as pets.
 
 [Transport Layer] Sending: 
 
 63784000800000000000POST https://www.inn
 63784000800000000001ersloth.com/games/am
-63784000800000000002ong-us/ HTTP/1.1
-
+63784000800000000002ong-us/ HTTP/1.1
 Ac
-63784000800000000003cept: text/html
-
+63784000800000000003cept: text/html
 Acc
-63784000800000000004ept-Charset: utf-8
+63784000800000000004ept-Charset: utf-8
 
-
-63784000800000000005Accept-language: en
-
+63784000800000000005Accept-language: en
 63784000800000000006
-Connection: close
-
+Connection: close
 
 63784000800000000007Host: www.innersloth
-63784000800000000008.com
-
+63784000800000000008.com
 User-agent: Wi
-63784000800000000009n64
-
-
-
+63784000800000000009n64
+
 Domestic cats
 63784000800000000010 are found across th
 63784000800000000011e globe, though thei
@@ -71,29 +54,21 @@ Domestic cats
 
 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000000POST https://www.inn
 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000001ersloth.com/games/am
-7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000002ong-us/ HTTP/1.1
-
+7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000002ong-us/ HTTP/1.1
 Ac
-7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000003cept: text/html
-
+7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000003cept: text/html
 Acc
-7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000004ept-Charset: utf-8
+7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000004ept-Charset: utf-8
 
-
-7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000005Accept-language: en
-
+7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000005Accept-language: en
 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000006
-Connection: close
-
+Connection: close
 
 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000007Host: www.innersloth
-7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000008.com
-
+7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000008.com
 User-agent: Wi
-7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000009n64
-
-
-
+7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000009n64
+
 Domestic cats
 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000010 are found across th
 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F6080004192.168.056.001172.031.000.00163784000800000000011e globe, though thei
@@ -123,27 +98,17 @@ Domestic cats
 63784000800000000000POST https://www.inn
 
 ========== Transport Layer Decapsulate:
-POST https://www.innersloth.com/games/among-us/ HTTP/1.1
-
-Accept: text/html
-
-Accept-Charset: utf-8
-
-Accept-language: en
-
-Connection: close
-
-Host: www.innersloth.com
-
-User-agent: Win64
-
-
-
+POST https://www.innersloth.com/games/among-us/ HTTP/1.1
+Accept: text/html
+Accept-Charset: utf-8
+Accept-language: en
+Connection: close
+Host: www.innersloth.com
+User-agent: Win64
+
 Domestic cats are found across the globe, though their popularity as pets varies by region. Out of the estimated 600 million cats worldwide, 400 million reside in Asia, including 58 million pet cats in China. The United States leads in cat ownership with 73.8 million cats. In the United Kingdom, approximately 10.9 million domestic cats are kept as pets.
 
 ========== Final message:
-
-
-
-
+
+
 Domestic cats are found across the globe, though their popularity as pets varies by region. Out of the estimated 600 million cats worldwide, 400 million reside in Asia, including 58 million pet cats in China. The United States leads in cat ownership with 73.8 million cats. In the United Kingdom, approximately 10.9 million domestic cats are kept as pets.

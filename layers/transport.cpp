@@ -23,8 +23,6 @@ string TransportLayer::Encapsulate(string message) {
     "Seq: " + m_dwSequence + ", " + "Ack: " + m_dwAcknowledge + ", " + "Len: " + m_dwLength;
 }
 
-
-
 vector<string> TransportLayer::encapsulate(string message) {
     uint16_t sourcePortBits = sourcePort;
     uint16_t destPortBits = destPort;
@@ -50,7 +48,6 @@ vector<string> TransportLayer::sendSegments(string message, string transportHead
 
         int sequenceNumber = i / MSS;
         uint32_t sequenceNumberBit = sequenceNumber;
-        //cout<< "sequence number in bits: " << convert32BitToString(sequenceNumberBit) << endl << endl;
         segmentArray.push_back(transportHeader + convertBitToString(sequenceNumberBit, 10) + message.substr(i, MSS));
 
     }
@@ -73,7 +70,7 @@ string TransportLayer::decapsulate(vector<string> segments) {
     const int headerSize = 20;
     int segmentArraySize = segments.size();
     
-    string segmentArray[segmentArraySize];  
+    string segmentArray[segmentArraySize];
     string message = "";
 
     /*
@@ -100,8 +97,4 @@ string TransportLayer::convertBitToString(uint32_t number, int dig) {
     char buffer[11]; 
     std::snprintf(buffer, sizeof(buffer), "%0*u", dig, number);
     return std::string(buffer);
-}
-
-string TransportLayer::Decapsulate(string message) {
-    return "";
 }

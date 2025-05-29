@@ -8,10 +8,6 @@ NetworkLayer::NetworkLayer(string ipVersion, string sourceIP, string destination
     dwIPVersion = ipVersion;
     dwSourceIP = sourceIP;
     dwDestinationIP = destinationIP;
-    
-    //dwIPVersion = "04"; // IPV4
-    //dwSourceIP = "010.001.002.345";
-    //dwDestinationIP = "045.678.910.011";
 }
 
 string NetworkLayer::Encapsulate(string message) {
