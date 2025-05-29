@@ -38,12 +38,14 @@ void Client::AddMessage(string dwMesage) {
 
 void Client::SendMessage(string dwHost) {
     map<string, string> fieldMap = {
-        {"Method", "GET"},
+        {"Method", "POST"},
         {"URL", "https://www.innersloth.com/games/among-us/"},
         {"Version", "HTTP/1.1"},
         {"Accept", "text/html"},
         {"Accept-Charset", "utf-8"},
-        {"Body", "Among Us is a 2018 online multiplayer social deduction game developed and published by American game studio Innersloth. The game allows for cross-platform play; it was released on iOS and Android devices in June 2018 and on Windows later that year in November. It was ported to the Nintendo Switch in December 2020 and on the PlayStation 4, PlayStation 5, Xbox One and Xbox Series X/S in December 2021. A virtual reality adaptation, Among Us VR, was released on November 10, 2022."},
+        {"User-agent", "Win64"},
+        {"Host", "www.innersloth.com"},
+        {"Body", "Domestic cats are found across the globe, though their popularity as pets varies by region. Out of the estimated 600 million cats worldwide, 400 million reside in Asia, including 58 million pet cats in China. The United States leads in cat ownership with 73.8 million cats. In the United Kingdom, approximately 10.9 million domestic cats are kept as pets."},
     };
 
     string dwMessage = "GET / HTTP/1.1\r\n";
