@@ -62,12 +62,17 @@ void Client::SendMessage(string dwHost) {
     vector<string> networkTest = pTransport->encapsulate(dwTransport);
     cout << "Segments: \n" << endl;
     
+    // create transport and network layers and encapsulate our message
+    cout << "\n[Network Layer] Sending Segments \n";
     for (int i = 0; i < networkTest.size(); i++) {
-
-        cout << networkTest[i] << endl;
+        NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
+        string dwNetwork = pNetwork->Encapsulate(networkTest[i]);
+        LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
+        string dwLink = pLink->Encapsulate(dwNetwork);
+        cout << dwLink << endl;
     }
 
-    string humptyDumpty = pTransport->decapsulate(networkTest);
+    //string humptyDumpty = pTransport->decapsulate(networkTest);
     
     // // create network layer and encapsulate our message
     // cout << "[Network Layer] Sending: " << dwNetwork << endl << endl;

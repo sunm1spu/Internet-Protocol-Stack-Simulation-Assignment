@@ -10,7 +10,7 @@ LinkLayer::LinkLayer(string source, string destination, string type) {
     
     //m_dwSource = "7c:21:4a:3c:0b:f9";
     //m_dwDestination = "1c:93:7c:61:60:68";
-    //m_dwEthernetVersion = "0800"; // Ethernet II
+    //m_dwEthernetVersion = "0800";
 }
 
 string LinkLayer::Encapsulate(string message) {
