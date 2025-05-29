@@ -88,7 +88,7 @@ string TransportLayer::decapsulate(vector<string> segments) {
         segmentArray[sequence] = segment;
     }
 
-    for (int i = 0; i < sizeof(segmentArray) / sizeof(segmentArray[0]) + 1; i++) {
+    for (int i = 0; i < sizeof(segmentArray) / sizeof(segmentArray[0]); i++) {
         cout << i << " putting back together: \n" << message << endl << endl;
         message += segmentArray[i];
     }
