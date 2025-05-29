@@ -86,13 +86,11 @@ void Client::SendMessage(string dwHost) {
 
     cout << "\nencapsulation finished" << endl;
 
-    cout <<"\nstarting decapsulization" << endl;
+    cout <<"\n==== Receiving ====" << endl;
 
     vector<string> linkSegmentsDecap = pLink->Decapsulate(finalSegments);
 
     vector<string> networkSegmentsDecap = pNetwork->Decapsulate(linkSegmentsDecap);
-
-    cout << "network seg: \n" << networkSegmentsDecap[0] << endl << endl;
 
     string decapTransMessage = pTransport->decapsulate(networkSegmentsDecap);
 
