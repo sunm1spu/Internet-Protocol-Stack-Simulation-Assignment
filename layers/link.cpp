@@ -14,9 +14,8 @@ LinkLayer::LinkLayer(string source, string destination, string type) {
 }
 
 string LinkLayer::Encapsulate(string message) {
-    return message  + 
-    "Src: " + m_dwSource + ", " + 
-    "Dst: " + m_dwDestination + ", " + m_dwType;
+    return "Src: " + m_dwSource + ", " + 
+    "Dst: " + m_dwDestination + ", " + m_dwType + message;
 }
 
 vector<string> LinkLayer::Decapsulate(vector<string> messages) {
@@ -29,6 +28,6 @@ vector<string> LinkLayer::Decapsulate(vector<string> messages) {
 
 string LinkLayer::DecapsulateSegment(string message) {
     // 4 + 17 * 2 = 38, 38 + 12 = 50
-    return message.substr(0, message.length() - 50);
+    return message.substr(50);
 }
 
