@@ -1,6 +1,7 @@
 #include "client.h"
 #include <iostream>
 #include <string>
+#include <fstream>
 
 #include "../layers/application.cpp"
 #include "../layers/transport.cpp"
@@ -10,6 +11,7 @@
 using std::cout;
 using std::endl;
 using std::string;
+using std::ofstream;
 
 Client::Client(string dwIP) : m_dwIP(dwIP) { 
     // randomly generate MACAddress
@@ -36,6 +38,24 @@ void Client::AddMessage(string dwMesage) {
     m_stdwIncomingMessages.push(dwMesage);
 }
 
+void Client::wipeOutputFile() {
+    ofstream file(outputFileName, std::ios::trunc);
+}
+
+void Client::writeToFile(string output) {
+    ofstream outputFile;
+    outputFile.open(outputFileName, std::ios::app);
+    
+
+    if (!outputFile.is_open()) {
+        std::cerr << "Can't open output file!" << endl;
+        return;
+    }
+
+    outputFile << output << endl;
+    outputFile.close();
+}
+
 void Client::SendMessage(string dwHost) {
     map<string, string> fieldMap = {
         {"Method", "POST"},
@@ -47,6 +67,7 @@ void Client::SendMessage(string dwHost) {
         {"Host", "www.innersloth.com"},
         {"Body", "Domestic cats are found across the globe, though their popularity as pets varies by region. Out of the estimated 600 million cats worldwide, 400 million reside in Asia, including 58 million pet cats in China. The United States leads in cat ownership with 73.8 million cats. In the United Kingdom, approximately 10.9 million domestic cats are kept as pets."},
     };
+    wipeOutputFile();
 
     string dwMessage = "GET / HTTP/1.1\r\n";
 
@@ -57,6 +78,9 @@ void Client::SendMessage(string dwHost) {
     ApplicationLayer* pApplication = new ApplicationLayer(fieldMap);
     string dwTransport = pApplication->encapsulate(); // capitalize this decapsulate
     
+    writeToFile("[Client /w IP: " + m_dwIP + "] ============ Sending ============\n[Application Layer] Sending: " + dwMessage);
+    writeToFile(dwTransport);
+
     // create transport layer and encapsulate our message
     cout << "\n[Transport Layer] Sending: \n" << dwTransport << endl << endl;
     TransportLayer* pTransport = new TransportLayer();
@@ -65,13 +89,16 @@ void Client::SendMessage(string dwHost) {
     vector<string> networkTest = pTransport->encapsulate(dwTransport);
     cout << "Segments: \n" << endl;
     
+    writeToFile("\n[Transport Layer] Sending: \n");
     for (int i = 0; i < networkTest.size(); i++) {
          cout << networkTest[i] << endl;
+         writeToFile(networkTest[i]);
     }
 
     // create transport and network layers and encapsulate our message
     cout << "\n[Network Layer] Sending Segments \n";
-    
+    writeToFile("\n[Network Layer] Sending Segments \n");
+
     vector<string> finalSegments;
      NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
     LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
@@ -84,23 +111,30 @@ void Client::SendMessage(string dwHost) {
         cout << dwLink << endl;
 
         finalSegments.push_back(dwLink);
+        writeToFile(dwLink);
     }
 
     cout << "\nencapsulation finished" << endl;
 
     cout <<"\n==== Receiving ====" << endl;
+    writeToFile("\n==== Receiving ====");
 
     vector<string> linkSegmentsDecap = pLink->Decapsulate(finalSegments);
+    writeToFile("\n========== Link Layer Decapsulate:\n" + linkSegmentsDecap[0]);
+
 
     vector<string> networkSegmentsDecap = pNetwork->Decapsulate(linkSegmentsDecap);
+    writeToFile("\n========== Newtork Layer Decapsulate:\n" + networkSegmentsDecap[0]);
 
     string decapTransMessage = pTransport->decapsulate(networkSegmentsDecap);
-
+    
     cout << "Transport Layer Decapsulate: \n" << decapTransMessage << endl << endl;
-
+    writeToFile("\n========== Transport Layer Decapsulate:\n" + decapTransMessage);
     string decapAppMessage = pApplication->decapsulate(decapTransMessage);
 
     cout << "Final message: \n" << decapAppMessage << endl << endl;
+    writeToFile("\n========== Final message:\n" + decapAppMessage);
+    
     // for (int i = 0; i < finalSegments.size(); i++) {
     //     string linkSegment = pLink->Decapsulate(finalSegments[i]);
 

@@ -15,11 +15,15 @@ class Client {
         void ProcessIncomingMessages();
         void AddMessage(string dwMessage);
         void RecieveMessage(string dwMesage);
+        
+        void wipeOutputFile();
+        void writeToFile(string message);
 
     private:
         string m_dwIP;
         string m_dwMACAddress;
         stack<string> m_stdwIncomingMessages;
+        const string outputFileName = "sample_output.txt";
 };
 
 #endif
