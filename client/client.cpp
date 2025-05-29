@@ -94,10 +94,13 @@ void Client::SendMessage(string dwHost) {
 
     cout << "network seg: \n" << networkSegmentsDecap[0] << endl << endl;
 
-    string humptydumpty2 = pTransport->decapsulate(networkSegmentsDecap);
+    string decapTransMessage = pTransport->decapsulate(networkSegmentsDecap);
 
-    cout << "humpty: \n" << humptydumpty2 << endl << endl;
+    cout << "Transport Layer Decapsulate: \n" << decapTransMessage << endl << endl;
 
+    string decapAppMessage = pApplication->decapsulate(decapTransMessage);
+
+    cout << "Final message: \n" << decapAppMessage << endl << endl;
     // for (int i = 0; i < finalSegments.size(); i++) {
     //     string linkSegment = pLink->Decapsulate(finalSegments[i]);
 

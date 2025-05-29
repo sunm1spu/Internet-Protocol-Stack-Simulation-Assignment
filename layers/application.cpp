@@ -47,7 +47,11 @@ string ApplicationLayer::encapsulate() {
 }
 
 string ApplicationLayer::decapsulate(string message) {
-    return "";
+    size_t endOfHeader = message.rfind("\r\n");
+
+    string finalMessage = message.substr(endOfHeader);
+    
+    return finalMessage;
 }
 
 void ApplicationLayer::removeField(string fieldName) {
