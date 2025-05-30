@@ -28,7 +28,7 @@ void Client::ProcessIncomingMessages() {
         m_stdwIncomingMessages.pop();
 
         // process this message
-        RecieveMessage(dwMessage);
+        //RecieveMessage(dwMessage);
     }
 }
 
@@ -56,7 +56,7 @@ void Client::writeToFile(string output) {
     outputFile.close();
 }
 
-void Client::SendMessage(string dwHost) {
+void Client::SendMessage(Client* pOther) {
     map<string, string> fieldMap = {
         {"Method", "POST"},
         {"URL", "https://www.innersloth.com/games/among-us/"},
@@ -100,7 +100,7 @@ void Client::SendMessage(string dwHost) {
     writeToFile("\n[Network Layer] Sending Segments \n");
 
     vector<string> finalSegments;
-     NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
+    NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, pOther->m_dwIP);
     LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
     for (int i = 0; i < networkTest.size(); i++) {
         string dwNetwork = pNetwork->Encapsulate(networkTest[i]);
@@ -112,27 +112,50 @@ void Client::SendMessage(string dwHost) {
     }
 
     cout << "\nencapsulation finished" << endl;
+    pOther->RecieveMessage(finalSegments);
+}
 
-    cout <<"\n==== Receiving ====" << endl;
-    writeToFile("\n==== Receiving ====");
+void Client::RecieveMessage(vector<string> vdwSegments) {
+    cout << "[Client /w IP: " << m_dwIP << "] ============ Receiving ============" << endl;
 
-    vector<string> linkSegmentsDecap = pLink->Decapsulate(finalSegments);
-    writeToFile("\n========== Link Layer Decapsulate:\n" + linkSegmentsDecap[0]);
+    cout << "\n[Link Layer] Receiving: \n" << endl;
+    writeToFile("\n[Link Layer] Receiving: \n");
+    for (int i = 0; i < vdwSegments.size(); ++i) {
+        cout << vdwSegments[i] << endl;
+        writeToFile(vdwSegments[i]+"\n");
+    }
+    // print out link layer decapsulization 
+    LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
+    vector<string> linkSegmentsDecap = pLink->Decapsulate(vdwSegments);
+    cout << "\n[Newtork Layer] Receiving: \n" << endl;
+    writeToFile("\n[Newtork Layer] Receiving: \n");
+    for (int i = 0; i < linkSegmentsDecap.size(); ++i) {
+        cout << linkSegmentsDecap[i] << endl;
+        writeToFile(linkSegmentsDecap[i]+"\n");
+    }
 
-
+    NetworkLayer* pNetwork = new NetworkLayer("04", "", "");
     vector<string> networkSegmentsDecap = pNetwork->Decapsulate(linkSegmentsDecap);
-    writeToFile("\n========== Newtork Layer Decapsulate:\n" + networkSegmentsDecap[0]);
+    cout << "\n[Transport Layer] Receiving: \n" << endl;
+    writeToFile("\n[Transport Layer] Receiving: \n");
+    for (int i = 0; i < networkSegmentsDecap.size(); ++i) {
+        cout << networkSegmentsDecap[i] << endl;
+        writeToFile(networkSegmentsDecap[i]+"\n");
+    }
 
+    TransportLayer* pTransport = new TransportLayer();
     string decapTransMessage = pTransport->decapsulate(networkSegmentsDecap);
     
-    cout << "Transport Layer Decapsulate: \n" << decapTransMessage << endl << endl;
-    writeToFile("\n========== Transport Layer Decapsulate:\n" + decapTransMessage);
+    cout << "\n[Application Layer] Receiving: \n" << decapTransMessage << endl << endl;
+    writeToFile("\n[Application Layer] Receiving: \n\n" + decapTransMessage);
+    ApplicationLayer* pApplication = new ApplicationLayer();
     string decapAppMessage = pApplication->decapsulate(decapTransMessage);
 
     cout << "Final message: \n" << decapAppMessage << endl << endl;
     writeToFile("\n========== Final message:\n" + decapAppMessage);
 }
 
-void Client::RecieveMessage(string dwMesage) {
-
+// this function exists purely to generate nice looking output
+void Client::GenerateRow(string message, int fcount) {
+    
 }
