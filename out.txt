@@ -1,0 +1,530 @@
+
+[Client /w IP: 192.168.056.001] ============ Sending ============
+
+[Application Layer] Sending: 
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Message Body                                                              │
+├───────────────────────────────────────────────────────────────────────────┤
+│ Domestic cats are found across the globe, though their popularity as pets │
+│  varies by region. Out of the estimated 600 million cats worldwide, 400 m │
+│ illion reside in Asia, including 58 million pet cats in China. The United │
+│  States leads in cat ownership with 73.8 million cats. In the United King │
+│ dom, approximately 10.9 million domestic cats are kept as pets.           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+
+[Transport Layer] Sending: 
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Pre TCP Segmentation Data                                                 │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, including 58 million pet cats in China. The United States leads in │
+│  cat ownership with 73.8 million cats. In the United Kingdom, approximate │
+│ ly 10.9 million domestic cats are kept as pets.                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+Generated TCP Segments:
+┌──────────────────────┬──────────────────────┐
+│ Transport Layer      │ Application Fragment │
+├──────────────────────┼──────────────────────┤
+│ 63784000800000000000 │ POST https://www.inn │
+│ 63784000800000000001 │ ersloth.com/games/am │
+│ 63784000800000000002 │ ong-us/ HTTP/1.1\r\n │
+│ 63784000800000000003 │ Accept: text/html\r\ │
+│ 63784000800000000004 │ nAccept-Charset: utf │
+│ 63784000800000000005 │ -8\r\nAccept-languag │
+│ 63784000800000000006 │ e: en\r\nConnection: │
+│ 63784000800000000007 │  close\r\nHost: www. │
+│ 63784000800000000008 │ innersloth.com\r\nUs │
+│ 63784000800000000009 │ er-agent: Win64\r\n\ │
+│ 63784000800000000010 │ r\nDomestic cats are │
+│ 63784000800000000011 │  found across the gl │
+│ 63784000800000000012 │ obe, though their po │
+│ 63784000800000000013 │ pularity as pets var │
+│ 63784000800000000014 │ ies by region. Out o │
+│ 63784000800000000015 │ f the estimated 600  │
+│ 63784000800000000016 │ million cats worldwi │
+│ 63784000800000000017 │ de, 400 million resi │
+│ 63784000800000000018 │ de in Asia, includin │
+│ 63784000800000000019 │ g 58 million pet cat │
+│ 63784000800000000020 │ s in China. The Unit │
+│ 63784000800000000021 │ ed States leads in c │
+│ 63784000800000000022 │ at ownership with 73 │
+│ 63784000800000000023 │ .8 million cats. In  │
+│ 63784000800000000024 │ the United Kingdom,  │
+│ 63784000800000000025 │ approximately 10.9 m │
+│ 63784000800000000026 │ illion domestic cats │
+│ 63784000800000000027 │  are kept as pets.   │
+└──────────────────────┴──────────────────────┘
+
+
+[Network Layer] Sending Segments 
+┌──────────────────────────────────┬──────────────────────┬──────────────────────┐
+│ Network Layer                    │ Transport Layer      │ Application Fragment │
+├──────────────────────────────────┼──────────────────────┼──────────────────────┤
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000000 │ POST https://www.inn │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000001 │ ersloth.com/games/am │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000002 │ ong-us/ HTTP/1.1\r\n │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000003 │ Accept: text/html\r\ │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000004 │ nAccept-Charset: utf │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000005 │ -8\r\nAccept-languag │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000006 │ e: en\r\nConnection: │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000007 │  close\r\nHost: www. │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000008 │ innersloth.com\r\nUs │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000009 │ er-agent: Win64\r\n\ │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000010 │ r\nDomestic cats are │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000011 │  found across the gl │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000012 │ obe, though their po │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000013 │ pularity as pets var │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000014 │ ies by region. Out o │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000015 │ f the estimated 600  │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000016 │ million cats worldwi │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000017 │ de, 400 million resi │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000018 │ de in Asia, includin │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000019 │ g 58 million pet cat │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000020 │ s in China. The Unit │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000021 │ ed States leads in c │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000022 │ at ownership with 73 │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000023 │ .8 million cats. In  │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000024 │ the United Kingdom,  │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000025 │ approximately 10.9 m │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000026 │ illion domestic cats │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000027 │  are kept as pets.   │
+└──────────────────────────────────┴──────────────────────┴──────────────────────┘
+
+
+[Link Layer] Sending Segments 
+┌────────────────────────────────────────┬──────────────────────────────────┬──────────────────────┬──────────────────────┐
+│ Link Layer                             │ Network Layer                    │ Transport Layer      │ Application Fragment │
+├────────────────────────────────────────┼──────────────────────────────────┼──────────────────────┼──────────────────────┤
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000000 │ POST https://www.inn │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000001 │ ersloth.com/games/am │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000002 │ ong-us/ HTTP/1.1\r\n │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000003 │ Accept: text/html\r\ │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000004 │ nAccept-Charset: utf │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000005 │ -8\r\nAccept-languag │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000006 │ e: en\r\nConnection: │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000007 │  close\r\nHost: www. │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000008 │ innersloth.com\r\nUs │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000009 │ er-agent: Win64\r\n\ │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000010 │ r\nDomestic cats are │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000011 │  found across the gl │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000012 │ obe, though their po │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000013 │ pularity as pets var │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000014 │ ies by region. Out o │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000015 │ f the estimated 600  │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000016 │ million cats worldwi │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000017 │ de, 400 million resi │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000018 │ de in Asia, includin │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000019 │ g 58 million pet cat │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000020 │ s in China. The Unit │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000021 │ ed States leads in c │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000022 │ at ownership with 73 │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000023 │ .8 million cats. In  │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000024 │ the United Kingdom,  │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000025 │ approximately 10.9 m │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000026 │ illion domestic cats │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000027 │  are kept as pets.   │
+└────────────────────────────────────────┴──────────────────────────────────┴──────────────────────┴──────────────────────┘
+encapsulation finished
+[Client /w IP: 172.031.000.001] ============ Receiving ============
+
+[Link Layer] Receiving:
+┌────────────────────────────────────────┬──────────────────────────────────┬──────────────────────┬──────────────────────┐
+│ Link Layer                             │ Network Layer                    │ Transport Layer      │ Application Fragment │
+├────────────────────────────────────────┼──────────────────────────────────┼──────────────────────┼──────────────────────┤
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000000 │ POST https://www.inn │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000001 │ ersloth.com/games/am │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000002 │ ong-us/ HTTP/1.1\r\n │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000003 │ Accept: text/html\r\ │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000004 │ nAccept-Charset: utf │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000005 │ -8\r\nAccept-languag │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000006 │ e: en\r\nConnection: │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000007 │  close\r\nHost: www. │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000008 │ innersloth.com\r\nUs │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000009 │ er-agent: Win64\r\n\ │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000010 │ r\nDomestic cats are │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000011 │  found across the gl │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000012 │ obe, though their po │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000013 │ pularity as pets var │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000014 │ ies by region. Out o │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000015 │ f the estimated 600  │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000016 │ million cats worldwi │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000017 │ de, 400 million resi │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000018 │ de in Asia, includin │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000019 │ g 58 million pet cat │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000020 │ s in China. The Unit │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000021 │ ed States leads in c │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000022 │ at ownership with 73 │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000023 │ .8 million cats. In  │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000024 │ the United Kingdom,  │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000025 │ approximately 10.9 m │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000026 │ illion domestic cats │
+│ 7c:21:4a:3c:0b:f91A:2B:3C:D4:E5:F60800 │ 04192.168.056.001172.031.000.001 │ 63784000800000000027 │  are kept as pets.   │
+└────────────────────────────────────────┴──────────────────────────────────┴──────────────────────┴──────────────────────┘
+
+
+[Newtork Layer] Receiving:
+┌──────────────────────────────────┬──────────────────────┬──────────────────────┐
+│ Network Layer                    │ Transport Layer      │ Application Fragment │
+├──────────────────────────────────┼──────────────────────┼──────────────────────┤
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000000 │ POST https://www.inn │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000001 │ ersloth.com/games/am │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000002 │ ong-us/ HTTP/1.1\r\n │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000003 │ Accept: text/html\r\ │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000004 │ nAccept-Charset: utf │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000005 │ -8\r\nAccept-languag │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000006 │ e: en\r\nConnection: │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000007 │  close\r\nHost: www. │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000008 │ innersloth.com\r\nUs │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000009 │ er-agent: Win64\r\n\ │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000010 │ r\nDomestic cats are │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000011 │  found across the gl │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000012 │ obe, though their po │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000013 │ pularity as pets var │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000014 │ ies by region. Out o │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000015 │ f the estimated 600  │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000016 │ million cats worldwi │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000017 │ de, 400 million resi │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000018 │ de in Asia, includin │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000019 │ g 58 million pet cat │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000020 │ s in China. The Unit │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000021 │ ed States leads in c │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000022 │ at ownership with 73 │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000023 │ .8 million cats. In  │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000024 │ the United Kingdom,  │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000025 │ approximately 10.9 m │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000026 │ illion domestic cats │
+│ 04192.168.056.001172.031.000.001 │ 63784000800000000027 │  are kept as pets.   │
+└──────────────────────────────────┴──────────────────────┴──────────────────────┘
+
+
+[Transport Layer] Receiving:
+┌──────────────────────┬──────────────────────┐
+│ Transport Layer      │ Application Fragment │
+├──────────────────────┼──────────────────────┤
+│ 63784000800000000000 │ POST https://www.inn │
+│ 63784000800000000001 │ ersloth.com/games/am │
+│ 63784000800000000002 │ ong-us/ HTTP/1.1\r\n │
+│ 63784000800000000003 │ Accept: text/html\r\ │
+│ 63784000800000000004 │ nAccept-Charset: utf │
+│ 63784000800000000005 │ -8\r\nAccept-languag │
+│ 63784000800000000006 │ e: en\r\nConnection: │
+│ 63784000800000000007 │  close\r\nHost: www. │
+│ 63784000800000000008 │ innersloth.com\r\nUs │
+│ 63784000800000000009 │ er-agent: Win64\r\n\ │
+│ 63784000800000000010 │ r\nDomestic cats are │
+│ 63784000800000000011 │  found across the gl │
+│ 63784000800000000012 │ obe, though their po │
+│ 63784000800000000013 │ pularity as pets var │
+│ 63784000800000000014 │ ies by region. Out o │
+│ 63784000800000000015 │ f the estimated 600  │
+│ 63784000800000000016 │ million cats worldwi │
+│ 63784000800000000017 │ de, 400 million resi │
+│ 63784000800000000018 │ de in Asia, includin │
+│ 63784000800000000019 │ g 58 million pet cat │
+│ 63784000800000000020 │ s in China. The Unit │
+│ 63784000800000000021 │ ed States leads in c │
+│ 63784000800000000022 │ at ownership with 73 │
+│ 63784000800000000023 │ .8 million cats. In  │
+│ 63784000800000000024 │ the United Kingdom,  │
+│ 63784000800000000025 │ approximately 10.9 m │
+│ 63784000800000000026 │ illion domestic cats │
+│ 63784000800000000027 │  are kept as pets.   │
+└──────────────────────┴──────────────────────┘
+
+Reassembling TCP Segments
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [0/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [1/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.inn                                                      │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [2/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/am                                  │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [3/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\n              │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [4/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\                                                                   │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [5/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf                                               │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [6/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-languag                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [7/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection:       │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [8/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.                                                            │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [9/27]                                           │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUs                                        │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [10/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\                    │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [11/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e                                                                         │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [12/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the gl                                                     │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [13/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their po                                 │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [14/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets var             │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [15/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out o                                                                  │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [16/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600                                               │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [17/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwi                          │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [18/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million resi      │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [19/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, includin                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [20/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, including 58 million pet cat                                       │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [21/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, including 58 million pet cats in China. The Unit                   │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [22/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, including 58 million pet cats in China. The United States leads in │
+│  c                                                                        │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [23/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, including 58 million pet cats in China. The United States leads in │
+│  cat ownership with 73                                                    │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [24/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, including 58 million pet cats in China. The United States leads in │
+│  cat ownership with 73.8 million cats. In                                 │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [25/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, including 58 million pet cats in China. The United States leads in │
+│  cat ownership with 73.8 million cats. In the United Kingdom,             │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [26/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, including 58 million pet cats in China. The United States leads in │
+│  cat ownership with 73.8 million cats. In the United Kingdom, approximate │
+│ ly 10.9 m                                                                 │
+└───────────────────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Assembling TCP fragments [27/27]                                          │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1\r\nAccept: text/ │
+│ html\r\nAccept-Charset: utf-8\r\nAccept-language: en\r\nConnection: close │
+│ \r\nHost: www.innersloth.com\r\nUser-agent: Win64\r\n\r\nDomestic cats ar │
+│ e found across the globe, though their popularity as pets varies by regio │
+│ n. Out of the estimated 600 million cats worldwide, 400 million reside in │
+│  Asia, including 58 million pet cats in China. The United States leads in │
+│  cat ownership with 73.8 million cats. In the United Kingdom, approximate │
+│ ly 10.9 million domestic cats                                             │
+└───────────────────────────────────────────────────────────────────────────┘
+
+
+[Application Layer] Receiving: 
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Application Layer Data                                                    │
+├───────────────────────────────────────────────────────────────────────────┤
+│ POST https://www.innersloth.com/games/among-us/ HTTP/1.1                  │
+│ Accept: text/html                                                         │
+│ Accept-Charset: utf-8                                                     │
+│ Accept-language: en                                                       │
+│ Connection: close                                                         │
+│ Host: www.innersloth.com                                                  │
+│ User-agent: Win64                                                         │
+│                                                                           │
+│ Domestic cats are found across the globe, though their popularity as pets │
+│  varies by region. Out of the estimated 600 million cats worldwide, 400 m │
+│ illion reside in Asia, including 58 million pet cats in China. The United │
+│  States leads in cat ownership with 73.8 million cats. In the United King │
+│ dom, approximately 10.9 million domestic cats are kept as pets.           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+
+Final message: 
+┌───────────────────────────────────────────────────────────────────────────┐
+│ Final Data                                                                │
+├───────────────────────────────────────────────────────────────────────────┤
+│ Domestic cats are found across the globe, though their popularity as pets │
+│  varies by region. Out of the estimated 600 million cats worldwide, 400 m │
+│ illion reside in Asia, including 58 million pet cats in China. The United │
+│  States leads in cat ownership with 73.8 million cats. In the United King │
+│ dom, approximately 10.9 million domestic cats are kept as pets.           │
+└───────────────────────────────────────────────────────────────────────────┘
+

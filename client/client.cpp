@@ -7,6 +7,7 @@
 #include "../layers/transport.cpp"
 #include "../layers/network.cpp"
 #include "../layers/link.cpp"
+#include "../util.cpp";
 
 using std::cout;
 using std::endl;
@@ -38,25 +39,7 @@ void Client::AddMessage(string dwMesage) {
     m_stdwIncomingMessages.push(dwMesage);
 }
 
-void Client::wipeOutputFile() {
-    ofstream file(outputFileName, std::ios::trunc);
-}
-
-void Client::writeToFile(string output) {
-    ofstream outputFile;
-    outputFile.open(outputFileName, std::ios::app);
-    
-
-    if (!outputFile.is_open()) {
-        std::cerr << "Can't open output file!" << endl;
-        return;
-    }
-
-    outputFile << output << endl;
-    outputFile.close();
-}
-
-void Client::SendMessage(Client* pOther) {
+void Client::SendMessage(Client* pOther, string body) {
     map<string, string> fieldMap = {
         {"Method", "POST"},
         {"URL", "https://www.innersloth.com/games/among-us/"},
@@ -65,59 +48,56 @@ void Client::SendMessage(Client* pOther) {
         {"Accept-Charset", "utf-8"},
         {"User-agent", "Win64"},
         {"Host", "www.innersloth.com"},
-        {"Body", "Domestic cats are found across the globe, though their popularity as pets varies by region. Out of the estimated 600 million cats worldwide, 400 million reside in Asia, including 58 million pet cats in China. The United States leads in cat ownership with 73.8 million cats. In the United Kingdom, approximately 10.9 million domestic cats are kept as pets."},
+        {"Body", FormatNL(body)},
     };
-    wipeOutputFile();
 
-    string dwMessage = "GET / HTTP/1.1\r\n";
-
-    cout << "[Client /w IP: " << m_dwIP << "] ============ Sending ============" << endl;
+    cout << "\n[Client /w IP: " << m_dwIP << "] ============ Sending ============" << endl;
 
     // create application layer and encapsulate the first layer of the message, we are emulating sending a simple GET request.
-    cout << "[Application Layer] Sending: " << dwMessage << endl << endl;
+    cout << "\n[Application Layer] Sending: \n" << FitInTable("Message Body", body) << endl << endl;
     ApplicationLayer* pApplication = new ApplicationLayer(fieldMap);
-    string dwTransport = pApplication->encapsulate(); // capitalize this decapsulate
-    
-    writeToFile("[Client /w IP: " + m_dwIP + "] ============ Sending ============\n[Application Layer] Sending: " + dwMessage);
-    writeToFile(dwTransport);
+    string dwTransport = FormatNL(pApplication->encapsulate()); // capitalize this decapsulate
 
     // create transport layer and encapsulate our message
-    cout << "\n[Transport Layer] Sending: \n" << dwTransport << endl << endl;
+    cout << "\n[Transport Layer] Sending: \n" << FitInTable("Pre TCP Segmentation Data", dwTransport) << endl << endl;
     TransportLayer* pTransport = new TransportLayer();
     string dwNetwork = pTransport->Encapsulate(dwTransport);
 
     vector<string> networkSegments = pTransport->encapsulate(dwTransport);
-    cout << "Segments: \n" << endl;
+    cout << "Generated TCP Segments:" << endl;
     
-    writeToFile("\n[Transport Layer] Sending: \n");
+    cout << GenerateHeaders(2);
     for (int i = 0; i < networkSegments.size(); i++) {
-         cout << networkSegments[i] << endl;
-         writeToFile(networkSegments[i]);
+        cout << GenerateRow(networkSegments[i], 2) << endl;
     }
+    cout << GenerateFooters(2) << endl << endl;
 
     // create network layer and encapsulate our message
     cout << "\n[Network Layer] Sending Segments \n";
-    writeToFile("\n[Network Layer] Sending Segments \n");
     vector<string> linkSegments;
     NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, pOther->m_dwIP);
+
+    
+    cout << GenerateHeaders(1);
     for (int i = 0; i < networkSegments.size(); i++) {
         string dwNetwork = pNetwork->Encapsulate(networkSegments[i]);
-        cout << dwNetwork << endl;
-        writeToFile(dwNetwork);
+        cout << GenerateRow(dwNetwork, 1) << endl;
         linkSegments.push_back(dwNetwork);
     }
+    cout << GenerateFooters(1) << endl << endl;
 
     // create link layer and encapsulate our message
     cout << "\n[Link Layer] Sending Segments \n";
-    writeToFile("\n[Link Layer] Sending Segments \n");
     vector<string> finalSegments;
     LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
+
+    cout << GenerateHeaders(0);
     for (int i = 0; i < linkSegments.size(); i++) {
         string dwLink = pLink->Encapsulate(linkSegments[i]);
-        cout << dwLink << endl;
-        writeToFile(dwLink);
+        cout << GenerateRow(dwLink, 0) << endl;
         finalSegments.push_back(dwLink);
     }
+    cout << GenerateFooters(0);
 
     cout << "\nencapsulation finished" << endl;
     pOther->RecieveMessage(finalSegments);
@@ -126,44 +106,44 @@ void Client::SendMessage(Client* pOther) {
 void Client::RecieveMessage(vector<string> vdwSegments) {
     cout << "[Client /w IP: " << m_dwIP << "] ============ Receiving ============" << endl;
 
-    cout << "\n[Link Layer] Receiving: \n" << endl;
-    writeToFile("\n[Link Layer] Receiving: \n");
+    cout << "\n[Link Layer] Receiving:" << endl;
+
+    cout << GenerateHeaders(0);
     for (int i = 0; i < vdwSegments.size(); ++i) {
-        cout << vdwSegments[i] << endl;
-        writeToFile(vdwSegments[i]+"\n");
+        cout << GenerateRow(vdwSegments[i], 0) << endl;
     }
+    cout << GenerateFooters(0) << endl << endl;
+
     // print out link layer decapsulization 
+    
     LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
     vector<string> linkSegmentsDecap = pLink->Decapsulate(vdwSegments);
-    cout << "\n[Newtork Layer] Receiving: \n" << endl;
-    writeToFile("\n[Newtork Layer] Receiving: \n");
+    cout << "\n[Newtork Layer] Receiving:" << endl;
+    
+    cout << GenerateHeaders(1);
     for (int i = 0; i < linkSegmentsDecap.size(); ++i) {
-        cout << linkSegmentsDecap[i] << endl;
-        writeToFile(linkSegmentsDecap[i]+"\n");
+        cout << GenerateRow(linkSegmentsDecap[i], 1) << endl;
     }
+    cout << GenerateFooters(1) << endl << endl;
 
     NetworkLayer* pNetwork = new NetworkLayer("04", "", "");
     vector<string> networkSegmentsDecap = pNetwork->Decapsulate(linkSegmentsDecap);
-    cout << "\n[Transport Layer] Receiving: \n" << endl;
-    writeToFile("\n[Transport Layer] Receiving: \n");
+    cout << "\n[Transport Layer] Receiving:" << endl;
+    
+    cout << GenerateHeaders(2);
     for (int i = 0; i < networkSegmentsDecap.size(); ++i) {
-        cout << networkSegmentsDecap[i] << endl;
-        writeToFile(networkSegmentsDecap[i]+"\n");
+        cout << GenerateRow(networkSegmentsDecap[i], 2) << endl;
     }
+    cout << GenerateFooters(2) << endl << endl;
 
     TransportLayer* pTransport = new TransportLayer();
-    string decapTransMessage = pTransport->decapsulate(networkSegmentsDecap);
+    string decapTransMessage = ReNL(pTransport->decapsulate(networkSegmentsDecap));
     
-    cout << "\n[Application Layer] Receiving: \n" << decapTransMessage << endl << endl;
-    writeToFile("\n[Application Layer] Receiving: \n\n" + decapTransMessage);
+
+    
+    cout << "\n[Application Layer] Receiving: \n" << FitInTable("Application Layer Data", decapTransMessage) << endl << endl << endl;
     ApplicationLayer* pApplication = new ApplicationLayer();
     string decapAppMessage = pApplication->decapsulate(decapTransMessage);
 
-    cout << "Final message: \n" << decapAppMessage << endl << endl;
-    writeToFile("\n========== Final message:\n" + decapAppMessage);
-}
-
-// this function exists purely to generate nice looking output
-void Client::GenerateRow(string message, int fcount) {
-
+    cout << "Final message: \n" << FitInTable("Final Data", decapAppMessage) << endl << endl;
 }

@@ -49,7 +49,7 @@ string ApplicationLayer::encapsulate() {
 string ApplicationLayer::decapsulate(string message) {
     size_t endOfHeader = message.rfind("\r\n\r\n");
 
-    string finalMessage = message.substr(endOfHeader);
+    string finalMessage = message.substr(endOfHeader+4);
     
     return finalMessage;
 }

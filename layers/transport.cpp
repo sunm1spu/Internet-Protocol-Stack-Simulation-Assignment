@@ -4,6 +4,7 @@ using namespace std;
 #include <vector>
 #include <stdint.h>
 
+#include "../util.cpp";
 
 TransportLayer::TransportLayer() {
     m_dwTCPVersion = "Transmission Control Protocol";
@@ -65,7 +66,7 @@ vector<string> TransportLayer::sendSegments(string message, string transportHead
     assembles the segments into a complete message.
 */
 string TransportLayer::decapsulate(vector<string> segments) {
-    cout << "decapsulating" << endl;
+    cout << "Reassembling TCP Segments" << endl;
 
     const int headerSize = 20;
     int segmentArraySize = segments.size();
@@ -86,7 +87,10 @@ string TransportLayer::decapsulate(vector<string> segments) {
     }
 
     for (int i = 0; i < sizeof(segmentArray) / sizeof(segmentArray[0]); i++) {
-        cout << i << " putting back together: \n" << message << endl << endl;
+
+        
+        cout <<  FitInTable("Assembling TCP fragments ["+std::to_string(i)+"/"+std::to_string(segmentArraySize-1)+"]", message) << endl << endl;
+        //cout << i << " putting back together: \n" << message << endl << endl;
         message += segmentArray[i];
     }
 

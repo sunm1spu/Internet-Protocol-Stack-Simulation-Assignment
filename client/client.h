@@ -13,7 +13,7 @@ using std::stack;
 class Client {
     public:
         Client(string dwIP); // default constructor
-        void SendMessage(Client* pOther);
+        void SendMessage(Client* pOther, string body);
         void ProcessIncomingMessages();
         void AddMessage(string dwMessage);
         void RecieveMessage(vector<string> vdwSegments);
@@ -26,7 +26,6 @@ class Client {
         string m_dwMACAddress;
         stack<string> m_stdwIncomingMessages;
         const string outputFileName = "sample_output.txt";
-        void GenerateRow(string message, int fcount);
 };
 
 #endif
