@@ -100,11 +100,9 @@ void Client::SendMessage(string dwHost) {
     writeToFile("\n[Network Layer] Sending Segments \n");
     vector<string> linkSegments;
     NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
-    LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
     for (int i = 0; i < networkSegments.size(); i++) {
         string dwNetwork = pNetwork->Encapsulate(networkSegments[i]);
         cout << dwNetwork << endl;
-        linkSegments.push_back(dwNetwork);
         writeToFile(dwNetwork);
         linkSegments.push_back(dwNetwork);
     }
@@ -113,9 +111,9 @@ void Client::SendMessage(string dwHost) {
     cout << "\n[Link Layer] Sending Segments \n";
     writeToFile("\n[Link Layer] Sending Segments \n");
     vector<string> finalSegments;
-    for (int i = 0; i < networkSegments.size(); i++) {
-        string dwNetwork = pNetwork->Encapsulate(networkSegments[i]);
-        string dwLink = pLink->Encapsulate(dwNetwork);
+    LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
+    for (int i = 0; i < linkSegments.size(); i++) {
+        string dwLink = pLink->Encapsulate(linkSegments[i]);
         cout << dwLink << endl;
         writeToFile(dwLink);
         finalSegments.push_back(dwLink);
