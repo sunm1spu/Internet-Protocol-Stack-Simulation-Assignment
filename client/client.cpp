@@ -86,29 +86,39 @@ void Client::SendMessage(string dwHost) {
     TransportLayer* pTransport = new TransportLayer();
     string dwNetwork = pTransport->Encapsulate(dwTransport);
 
-    vector<string> networkTest = pTransport->encapsulate(dwTransport);
+    vector<string> networkSegments = pTransport->encapsulate(dwTransport);
     cout << "Segments: \n" << endl;
     
     writeToFile("\n[Transport Layer] Sending: \n");
-    for (int i = 0; i < networkTest.size(); i++) {
-         cout << networkTest[i] << endl;
-         writeToFile(networkTest[i]);
+    for (int i = 0; i < networkSegments.size(); i++) {
+         cout << networkSegments[i] << endl;
+         writeToFile(networkSegments[i]);
     }
 
-    // create transport and network layers and encapsulate our message
+    // create network layer and encapsulate our message
     cout << "\n[Network Layer] Sending Segments \n";
     writeToFile("\n[Network Layer] Sending Segments \n");
-
-    vector<string> finalSegments;
-     NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
+    vector<string> linkSegments;
+    NetworkLayer* pNetwork = new NetworkLayer("04", m_dwIP, dwHost);
     LinkLayer* pLink = new LinkLayer("7c:21:4a:3c:0b:f9", m_dwMACAddress, "0800");
-    for (int i = 0; i < networkTest.size(); i++) {
-        string dwNetwork = pNetwork->Encapsulate(networkTest[i]);
+    for (int i = 0; i < networkSegments.size(); i++) {
+        string dwNetwork = pNetwork->Encapsulate(networkSegments[i]);
+        cout << dwNetwork << endl;
+        linkSegments.push_back(dwNetwork);
+        writeToFile(dwNetwork);
+        linkSegments.push_back(dwNetwork);
+    }
+
+    // create link layer and encapsulate our message
+    cout << "\n[Link Layer] Sending Segments \n";
+    writeToFile("\n[Link Layer] Sending Segments \n");
+    vector<string> finalSegments;
+    for (int i = 0; i < networkSegments.size(); i++) {
+        string dwNetwork = pNetwork->Encapsulate(networkSegments[i]);
         string dwLink = pLink->Encapsulate(dwNetwork);
         cout << dwLink << endl;
-
-        finalSegments.push_back(dwLink);
         writeToFile(dwLink);
+        finalSegments.push_back(dwLink);
     }
 
     cout << "\nencapsulation finished" << endl;
